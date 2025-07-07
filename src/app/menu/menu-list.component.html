@@ -1,0 +1,10 @@
+<h2>Menu Items</h2>
+<button (click)="addItem()">Add Item</button>
+<ul>
+  <li *ngFor="let item of menuItems">
+    {{item.name}} - {{item.price | currency}}
+    <button (click)="editItem(item)">Edit</button>
+    <button (click)="deleteItem(item)">Delete</button>
+  </li>
+</ul>
+<app-menu-form *ngIf="editingItem" [item]="editingItem" (save)="onSave($event)" (cancel)="editingItem = null"></app-menu-form>
